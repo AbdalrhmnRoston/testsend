@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة البيانات</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        form { display: flex; flex-direction: column; gap: 10px; }
+        input, button { padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+<form id="deviceForm">
+    <label for="device_id">أدخل الـ Device ID:</label>
+    <input type="text" id="open" name="open" required>
+    <button type="submit">إرسال</button>
+</form>
+
+<script>
+    $(document).ready(function() {
+        $("#deviceForm").submit(function(e) {
+            e.preventDefault();
+            var deviceID = $("#device_id").val();
+
+            $.ajax({
+                url: "https://hooks.airtable.com/workflows/v1/genericWebhook/app4wSzf8emO0Gf3l/wfl7PeMIZSZKsXSmx/wtrbhl3qwTBAMnMV3",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ open: open }),
+                success: function(response) {
+                    alert("تم الإرسال بنجاح!");
+                },
+                error: function(xhr) {
+                    alert("حدث خطأ أثناء الإرسال.");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
