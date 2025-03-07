@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة الرئيسية</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #content-box { border: 1px solid #ccc; padding: 20px; margin: 20px auto; width: 300px; }
+        header, footer { background: #f4f4f4; padding: 10px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Test</h2>
+</header>
+
+<h3>المربع القادم من صفحة البيانات:</h3>
+<div id="content-box">جاري تحميل البيانات...</div>
+
+<footer>
+    <p>فوتر الموقع</p>
+</footer>
+
+<script>
+    $(document).ready(function() {
+        $("#content-box").load("data.html");
+    });
+</script>
+
+</body>
+</html>
